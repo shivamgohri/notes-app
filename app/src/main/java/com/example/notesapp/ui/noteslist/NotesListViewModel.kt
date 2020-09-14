@@ -19,5 +19,7 @@ class NotesListViewModel(
         repository.delete(item)
     }
 
+    fun getNotesItem(id: Int) = repository.getNotesItem(id)
+
     fun getAllNotesItem() = repository.getAllNotesItem()
 }

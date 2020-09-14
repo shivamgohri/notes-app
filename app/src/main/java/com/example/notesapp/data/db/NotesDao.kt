@@ -15,4 +15,7 @@ interface NotesDao {
 
     @Query("SELECT * FROM notes_table")
     fun getAllNotesItem(): LiveData<List<NotesItem>>
+
+    @Query("SELECT * FROM notes_table WHERE id = :id")
+    fun getNotesItem(id: Int): NotesItem
 }

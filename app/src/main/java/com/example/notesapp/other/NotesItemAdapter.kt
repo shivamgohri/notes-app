@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.notes_item.view.*
 
 class NotesItemAdapter(
     var items: List<NotesItem>,
-    private val viewModel: NotesListViewModel
+    private val viewModel: NotesListViewModel,
+    private val onNoteClickListener: OnNoteClickListener
 ): RecyclerView.Adapter<NotesItemAdapter.NotesViewHolder>() {
 
     inner class NotesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
@@ -30,6 +31,10 @@ class NotesItemAdapter(
 
         holder.itemView.ivDelete.setOnClickListener {
             viewModel.delete(currNotesItem)
+        }
+
+        holder.itemView.setOnClickListener {
+            onNoteClickListener.OnNoteClick(items[position])
         }
     }
 

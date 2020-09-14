@@ -12,4 +12,6 @@ class NotesRepository(
     suspend fun delete(item: NotesItem) = db.getNotesDao().delete(item)
 
     fun getAllNotesItem() = db.getNotesDao().getAllNotesItem()
+
+    fun getNotesItem(id: Int) = db.getNotesDao().getNotesItem(id)
 }
